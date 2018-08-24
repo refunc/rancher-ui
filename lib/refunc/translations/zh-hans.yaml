@@ -1,0 +1,52 @@
+---
+languageName: "简体中文"
+languageContribute: "帮助翻译Rancher"
+
+
+##############################
+# Really generic things used in multiple places (use sparingly)
+##############################
+generic:
+  branch: 分支
+  repository: 代码库
+  registry: 镜像库
+  tag: Tag
+  destroying: 销毁
+  deploy: 部署
+  image: 镜像
+  loginIn: 登录
+##############################
+# Resource Actions
+##############################
+action:
+  approve: 批准
+  rerun: 重新运行
+  run: 运行一次
+
+nav:
+  cluster:
+    functions: 云函数
+  containers:
+    functions: 云函数
+
+refuncPage:
+  header: 云函数
+  add: 创建函数
+  import: 导入functions.yaml
+  table:
+    hash: 版本
+    status: 状态
+  group:
+    none: 所有
+    activeOnly: 只显示活跃函数
+  noData: 没有符合分组条件的云函数
+  noMatch: 没有云函数匹配当前搜索
+  notDeployed: Refunc没有启用, 点击<a href="{route}">这里</a>启用Refunc
+
+funcinstPage:
+  header: 'Funcinst: {name}'
+  multistat:
+    funcName: '云函数: '
+    runtime: '运行时: '
+    triggerName: '触发器: '
+    lastActivity: '上次活跃: '

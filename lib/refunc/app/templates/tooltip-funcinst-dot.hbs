@@ -1,0 +1,12 @@
+<div class="tooltip-content-inner tooltip-dot">
+  {{action-menu model=model showPrimary=false inTooltip=true class="pull-right tooltip-more-actions"}}
+
+  <div class="display-name">
+    {{#link-to "authenticated.project.refunc.funcinst" model.id}} {{displayName}} {{/link-to}}
+  </div>
+
+  <div class="clearfix">
+    <div class="pull-right">{{badge-state classNames="btn-xs" model=model}}</div>
+    <div class="display-ip pull-left">{{date-from-now model.lastActivity}}</div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "name": "refunc",
+  "keywords": [
+    "ember-addon",
+    "ember-engine"
+  ],
+  "dependencies": {
+    "ember-basic-dropdown": "*",
+    "ember-math-helpers": "*",
+    "ember-cli": "*",
+    "ember-cli-clipboard": "*",
+    "ember-href-to": "*",
+    "ember-browserify": "*",
+    "ember-cli-babel": "*",
+    "ember-cli-htmlbars": "*",
+    "ember-drag-drop": "*",
+    "ember-intl": "*",
+    "ember-truth-helpers": "*"
+  },
+  "ember-addon": {
+    "paths": [
+      "../shared"
+    ]
+  }
+}

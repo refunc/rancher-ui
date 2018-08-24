@@ -121,6 +121,7 @@ Router.map(function() {
       this.mount('alert', { path: '/alerts' });
 
       this.mount('pipeline');
+      this.mount('refunc');
 
       // Workload
       this.route('containers', {

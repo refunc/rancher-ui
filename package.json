@@ -113,7 +113,8 @@
       "lib/login",
       "lib/nodes",
       "lib/pipeline",
-      "lib/shared"
+      "lib/shared",
+      "lib/refunc"
     ]
   }
 }
