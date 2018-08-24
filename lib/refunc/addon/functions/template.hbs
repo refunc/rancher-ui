@@ -1,0 +1,55 @@
+{{#containers-header showGroup=false}}
+  {{#if model.deployed}}
+    <div class="btn-group p-0 mr-10">
+      {{~#tooltip-element type="tooltip-basic" model=(t 'refuncPage.group.none') tooltipTemplate='tooltip-static' aria-describedby="tooltip-base" tooltipFor="tooltipLink"~}}
+        {{~#link-to (query-params group="none") classNames="btn btn-sm bg-default"~}}<i class="icon icon-container"></i>{{~/link-to~}}
+      {{~/tooltip-element~}}
+      {{~#tooltip-element type="tooltip-basic" model=(t 'refuncPage.group.activeOnly') tooltipTemplate='tooltip-static' aria-describedby="tooltip-base" tooltipFor="tooltipLink"~}}
+        {{~#link-to (query-params group="namespace") classNames="btn btn-sm bg-default"~}}<i class="icon icon-list-nested"></i>{{~/link-to~}}
+      {{~/tooltip-element~}}
+    </div>
+    {{#link-to "functions" classNames="btn btn-sm bg-default mr-10"}}{{t 'refuncPage.import'}}{{/link-to}}
+    {{#link-to "functions" class="btn btn-sm bg-primary"}}
+      {{t 'refuncPage.add'}}
+    {{/link-to}}
+  {{/if}}
+{{/containers-header}}
+
+<div class="mt-10"></div>
+{{#if model.deployed}}
+  <section class="instances">
+    {{#sortable-table
+      classNames="grid sortable-table"
+      body=rows
+      searchText=searchText
+      sortBy=sortBy
+      bulkActions=true
+      descending=descending
+      subRows=true
+      pagingLabel="pagination.refunc"
+      groupByKey=groupTableBy
+      groupByRef="namespace"
+      headers=headers as |sortable kind inst dt|}}
+        {{#if (eq kind "row")}}
+          {{
+            function-row
+            model=inst
+            toggle=(action "toggleExpand" inst.id)
+            expanded=(array-includes expandedInstances inst.id)
+            searchText=searchText
+            subMatches=sortable.subMatches
+            fullColspan=sortable.fullColspan
+            dt=dt
+          }}
+        {{else if (eq kind "group")}}
+          {{namespace-group model=inst.ref fullColspan=sortable.fullColspan}}
+        {{else if (eq kind "nomatch")}}
+          <tr><td colspan="{{sortable.fullColspan}}" class="text-center text-muted pt-20 pb-20">{{t 'refuncPage.noMatch'}}</td></tr>
+        {{else if (eq kind "norows")}}
+          <tr><td colspan="{{sortable.fullColspan}}" class="text-center text-muted pt-20 pb-20">{{t 'refuncPage.noData'}}</td></tr>
+        {{/if}}
+    {{/sortable-table}}
+  </section>
+{{else}}
+  {{banner-message color='bg-warning mb-0 mt-10' message=(t 'refuncPage.notDeployed' route=linkToDeploy htmlSafe=true)}}
+{{/if}}

@@ -1,0 +1,66 @@
+<section class="header clearfix">
+  <div class="pull-left">
+    <h1 class="vertical-middle">
+      {{t 'funcinstPage.header' name=funcinst.displayName}}
+    </h1>
+  </div>
+  <div class="right-buttons">
+    {{badge-state model=funcinst}}
+    {{action-menu model=funcinst showPrimary=false classNames="ml-10 pull-right" size="sm"}}
+  </div>
+</section>
+
+<div id="largeStats">
+</div>
+
+{{#if funcinst.description}}
+  {{banner-message color='bg-secondary mb-0 mt-10' message=(linkify funcinst.description)}}
+{{/if}}
+
+{{#if funcinst.showTransitioningMessage}}
+  <div class="{{funcinst.stateColor}}"><p>{{uc-first funcinst.transitioningMessage}}</p></div>
+{{/if}}
+
+<section>
+  <div class="row banner bg-info basics">
+    <div class="vertical-middle">
+      <label class="acc-label vertical-middle p-0">{{t 'servicePage.multistat.namespace'}}</label>
+      {{funcinst.namespace.displayName}}
+    </div>
+
+    <div class="vertical-middle">
+      <label class="acc-label vertical-middle p-0">{{t 'funcinstPage.multistat.funcName'}}</label>
+      {{funcinst.funcdefRef.displayName}}
+    </div>
+
+    <div class="vertical-middle">
+      <label class="acc-label vertical-middle p-0">{{t 'funcinstPage.multistat.runtime'}}</label>
+      {{funcinst.funcdef.runtime.name}} {{copy-to-clipboard clipboardText=funcinst.funcdef.runtime.name size="small"}}
+    </div>
+  </div>
+
+  <div class="row banner bg-info basics">
+    <div class="vertical-middle">
+      <label class="acc-label vertical-middle p-0">{{t 'funcinstPage.multistat.triggerName'}}</label>
+      {{funcinst.triggerName}}
+    </div>
+    <div class="vertical-middle">
+      <label class="acc-label vertical-middle p-0">{{t 'servicePage.multistat.created'}}</label>
+      {{date-calendar funcinst.created}}
+    </div>
+    <div class="vertical-middle">
+      <label class="acc-label vertical-middle p-0">{{t 'funcinstPage.multistat.lastActivity'}}</label>
+      {{date-calendar funcinst.lastActivity}}
+    </div>
+  </div>
+</section>
+
+<section>
+  {{#accordion-list as |al expandFn|}}
+    {{accordion-pod
+      pods=pods
+      expandAll=al.expandAll
+      expandFn=expandFn
+    }}
+  {{/accordion-list}}
+</section>
