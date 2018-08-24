@@ -183,6 +183,44 @@ const App = Application.extend({
           'authenticated.project.dns.index':          'authenticated.project.dns.index',
           'ingresses.index':                          'ingresses.index',
           'containers.index':                         'containers.index',
+          'authenticated.project.refunc.functions':   'authenticated.project.refunc.functions',
+          'authenticated.project.pipeline.pipeline':  'authenticated.project.pipeline.pipeline',
+          'authenticated.project.pipeline.pipelines': 'authenticated.project.pipeline.pipelines'
+        }
+      }
+    },
+    refunc: {
+      dependencies: {
+        services: [
+          'app',
+          'clusterStore',
+          'github',
+          'globalStore',
+          'intl',
+          'growl',
+          'modal',
+          'router',
+          'resource-actions',
+          'scope',
+          'session',
+          'store',
+          'tooltip',
+        ],
+        externalRoutes: {
+          index:                                      'index',
+          failWhale:                                  'failWhale',
+          authenticated:                              'authenticated',
+          'authenticated.cluster':                    'authenticated.cluster',
+          'authenticated.cluster.index':              'authenticated.cluster.index',
+          'authenticated.cluster.projects':           'authenticated.cluster.projects',
+          'authenticated.project':                    'authenticated.project',
+          'authenticated.prefs':                      'authenticated.prefs',
+          'logout':                                   'logout',
+          'volumes.index':                            'volumes.index',
+          'authenticated.project.dns.index':          'authenticated.project.dns.index',
+          'ingresses.index':                          'ingresses.index',
+          'containers.index':                         'containers.index',
+          'authenticated.project.refunc.functions':   'authenticated.project.refunc.functions',
           'authenticated.project.pipeline.pipeline':  'authenticated.project.pipeline.pipeline',
           'authenticated.project.pipeline.pipelines': 'authenticated.project.pipeline.pipelines'
         }

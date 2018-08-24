@@ -1,0 +1,58 @@
+languageName: "English"
+languageContribute: "Help Translate Rancher"
+
+
+##############################
+# Really generic things used in multiple places (use sparingly)
+##############################
+generic:
+  branch: Branch
+  repository: Repository
+  registry: Registry
+  tag: Tag
+  destroying: Destroying
+  deploy: Deploy
+  image: Image
+  loginIn: Login in
+##############################
+# Resource Actions
+##############################
+action:
+  approve: Approve
+  rerun: Rerun
+  run: Run Once
+
+nav:
+  cluster:
+    functions: Functions
+  containers:
+    functions: Functions
+
+refuncPage:
+  header: Functions
+  add: Add
+  import: Import YAML
+  table:
+    hash: Version
+    status: Status
+  group:
+    none: Display all functions
+    activeOnly: Only show active functions
+  noData: No functions match the current group
+  noMatch: No functions match the current search
+  notDeployed: Refunc is not enabled, click <a href="{route}">here</a> to enable Refunc
+
+pagination:
+  refunc: |
+    {pages, plural,
+    =0 {No Functions}
+    =1 {{count} {count, plural, =1 {Function} other {Functions}}}
+    other {{from} - {to} of {count} Functions}}
+
+funcinstPage:
+  header: 'Funcinst: {name}'
+  multistat:
+    funcName: 'Function: '
+    runtime: 'Runtime: '
+    triggerName: 'Trigger: '
+    lastActivity: 'Activity: '

@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 import C from 'ui/utils/constants';
 
 const DEFAULT_ROUTE = 'containers';
-const VALID_ROUTES = [DEFAULT_ROUTE, 'scaling-groups', 'ingresses', 'authenticated.project.dns', 'volumes', 'authenticated.project.pipeline.pipelines'];
+const VALID_ROUTES = [DEFAULT_ROUTE, 'scaling-groups', 'ingresses', 'authenticated.project.dns', 'volumes', 'authenticated.project.pipeline.pipelines', 'authenticated.project.refunc.functions'];
 
 export default Route.extend({
   redirect() {
